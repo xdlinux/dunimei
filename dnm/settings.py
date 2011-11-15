@@ -1,4 +1,4 @@
-# Django settings for book project.
+# Django settings for dnm project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -27,11 +27,11 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'Asia/Chongqing'
+TIME_ZONE = 'America/Chicago'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'zh-CN'
+LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
@@ -83,7 +83,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '7dp@aiai9oj1=!jwr1r2+u6he63h3@jn2v2^xvi3ydz(n7z&pw'
+SECRET_KEY = '2_ut!(s5=0ru5t#0k=s+^26=-0ij8o5j#&o($jd#1@k#%n^n&^'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -100,7 +100,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'book.urls'
+ROOT_URLCONF = 'dnm.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
