@@ -10,3 +10,9 @@ class Book(models.Model):
     def __unicode__(self):
         return self.title
 
+class Record(models.Model):
+    book = models.ForeignKey(Book)
+    owner = models.ForeignKey(User)
+    lendto = models.ForeignKey(User)
+    lenddate = models.DateField()
+    deadline = models.DateField()
