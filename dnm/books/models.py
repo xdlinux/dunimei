@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Book(models.Model):
     """the book model"""
     title = models.CharField(max_length=100)
@@ -37,3 +38,12 @@ class Item(models.Model):
 
     def __unicode__(self):
         return u"Item"
+
+
+class Record(models.Model):
+    """the record model"""
+    book = models.ForeignKey(Book)
+    owner = models.ForeignKey(User)
+    lendto = models.ForeignKey(User)
+    lenddate = models.DateField()
+    deadline = models.DateField()
