@@ -118,6 +118,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django_evolution',
     'books',
     'account',
     # Uncomment the next line to enable admin documentation:
