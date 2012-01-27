@@ -11,6 +11,7 @@ class Book(models.Model):
         return self.title
 
 class Record(models.Model):
+    """the record model"""
     book = models.ForeignKey(Book)
     owner = models.ForeignKey(User)
     lendto = models.ForeignKey(User)
