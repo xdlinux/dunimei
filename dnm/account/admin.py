@@ -1,4 +1,3 @@
-from account.models import UserProfile
+from account.models import MyProfile
 from django.contrib import admin
 
-admin.site.register(UserProfile)

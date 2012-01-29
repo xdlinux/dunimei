@@ -3,3 +3,4 @@ django-userena
 django_evolution
 requests
 pyquery
+PIL
