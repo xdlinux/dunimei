@@ -47,3 +47,7 @@ class Record(models.Model):
     lendto = models.ForeignKey(User, related_name="lender_of")
     lenddate = models.DateField()
     deadline = models.DateField()
+
+    def __unicode__(self):
+        return u"Record"
+
