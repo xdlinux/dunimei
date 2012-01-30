@@ -34,7 +34,9 @@ class Place(models.Model):
 class Book(models.Model):
     """"""
     bid = models.ForeignKey(Bid)
-    current_record = models.ForeignKey('Record', related_name="current_record")
+    current_record = models.ForeignKey('Record',
+                                    related_name="current_record",
+                                    blank=True)
 
     def __unicode__(self):
         return u"Item"
