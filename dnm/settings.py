@@ -165,7 +165,7 @@ INSTALLED_APPS = [
     "pagination",
     "idios",
     "metron",
-    
+
     # Pinax
     "pinax.apps.account",
     "pinax.apps.signup_codes",
@@ -173,6 +173,7 @@ INSTALLED_APPS = [
     # project
     "about",
     "profiles",
+    'books',
 ]
 
 FIXTURE_DIRS = [
@@ -212,7 +213,7 @@ DEBUG_TOOLBAR_CONFIG = {
     "INTERCEPT_REDIRECTS": False,
 }
 
-# local_settings.py can be used to override environment-specific settings
+# local_sewttings.py can be used to override environment-specific settings
 # like database and email that differ between development and production.
 try:
     from local_settings import *
