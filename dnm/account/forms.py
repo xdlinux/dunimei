@@ -18,7 +18,6 @@ class SignupFormExtra(SignupForm):
     last_name = forms.CharField(label=u'名',
                                 max_length=30,
                                 required=False)
-    password1 = forms.CharField(widget=forms.PasswordInput(label=u"密码"))
 
     def __init__(self, *args, **kw):
         """
