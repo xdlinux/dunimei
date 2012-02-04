@@ -1,2 +1,27 @@
 {% extends "base.html" %}
+{% block body %}
+
+  <div class="row-fluid">
+      <div class="span3">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            {% block sidebar %}
+            {% if user.username %}
+            <li class="nav-header">我的账号</li>
+                <!-- <li><a href="{% url userena_profile_detail user.username %}">我的资料</li> -->
+                <li><a href="{% url userena_profile_edit user.username %}">编辑资料</a></li>
+                <li><a href="{% url userena_password_change user.username %}">修改密码</a></li>
+                <li><a href="{% url userena_email_change user.username %}">修改邮箱</a></li>
+            {% else %}
+            <p>你好用户</p>
+            {% endif %}
+            {% endblock %}
+          </ul>
+        </div><!--/.well -->
+      </div><!--/span-->
+        <div class="span9">
+             {% block content %}{% endblock %}
+        </div><!--/span-->
+  </div><!--/row-->
+{% endblock%}
 

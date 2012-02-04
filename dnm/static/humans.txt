@@ -3,10 +3,8 @@
 
 
 /* TEAM */
-  <your title>: <your name>
-  Site:
-  Twitter:
-  Location:
+    Sean Lee
+    http://notimportant.org
 
 /* THANKS */
   Names (& URL):

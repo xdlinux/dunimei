@@ -9,9 +9,10 @@ class MyProfile(UserenaBaseProfile):
     bio = models.CharField(blank=True, max_length=140)
     webpage = models.URLField(blank=True, verify_exists=False)
     phone = models.CharField(max_length=11)
-    place = models.ForeignKey(Place)
+    place = models.ForeignKey(Place, blank=True)
 
     def __unicode__(self):
         return self.user.username
 
-        
+
+
