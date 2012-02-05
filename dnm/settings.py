@@ -174,6 +174,7 @@ INSTALLED_APPS = [
     "about",
     "profiles",
     'books',
+    'places',
 ]
 
 FIXTURE_DIRS = [
