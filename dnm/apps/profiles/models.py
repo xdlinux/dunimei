@@ -9,4 +9,8 @@ class Profile(ProfileBase):
     location = models.CharField(_("location"), max_length=40, null=True, blank=True)
     website = models.URLField(_("website"), null=True, blank=True, verify_exists=False)
     bio = models.CharField(_("bio"), blank=True, max_length=140)
-    place = models.ForeignKey(Place, null=True, blank=True)
+    place = models.ForeignKey(Place, null=True, blank=True, related_name='all_users')
+    
+    @property
+    def username(self):
+        return self.user.username

@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.db.models import permalink
 
 class Place(models.Model):
     """
@@ -14,9 +14,12 @@ class Place(models.Model):
     slug = models.SlugField(unique=True)
     description = models.CharField(max_length=500)
     custom_css = models.TextField(blank=True)
-
+    
     def __unicode__(self):
         return self.name
-
+        
+    @permalink
+    def get_absolute_url(self):
+        return ('places.views.place', [str(self.slug)])
 
 

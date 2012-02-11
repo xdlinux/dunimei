@@ -165,6 +165,7 @@ INSTALLED_APPS = [
     "pagination",
     "idios",
     "metron",
+    'south',
 
     # Pinax
     "pinax.apps.account",
@@ -180,6 +181,8 @@ INSTALLED_APPS = [
 FIXTURE_DIRS = [
     os.path.join(PROJECT_ROOT, "fixtures"),
 ]
+
+SITE_NAME = 'dunimei'
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
