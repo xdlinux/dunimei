@@ -1,0 +1,18 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load ifsetting_tag %}
+
+{% block head_title %} {{ bid.title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ bid.title }}</h1>
+    <ul>
+        <li>authors: {{ bid.authors }}</li>
+        <li>ISBN: {{ bid.isbn }}</li>
+    </ul>
+    <img src="{{ bid.img }}" />
+    <p> {{ bid.description }}</p>
+    <p>共用 {{ bid.num }}<p>
+        
+{% endblock %}
