@@ -12,3 +12,13 @@ def bid_detail(request, id):
                                 {'bid': bid },
                                 context_instance=RequestContext(request))
 
+def uid_detail(request,u_id):
+    try:
+        #book_id=Book.objects.get(owner=u_id
+        pass
+    except:
+        pass
+    #return render_to_response('books/uid_detail.html',
+    #                           {'u_id':u_id},
+    #                           context_instance=RequestContext(request))
+    return 'aa'
