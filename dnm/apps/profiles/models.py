@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.db.models import permalink
 
 from idios.models import ProfileBase
 from places.models import Place
@@ -13,4 +14,4 @@ class Profile(ProfileBase):
     
     @property
     def username(self):
-        return self.user.username
+        return self.user.username    
