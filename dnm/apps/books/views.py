@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.http import Http404
 from django.template import RequestContext
+from django.contrib.auth.models import User
 from books.models import Bid, Book, Record
 
 def bid_detail(request, id):
@@ -12,13 +13,12 @@ def bid_detail(request, id):
                                 {'bid': bid },
                                 context_instance=RequestContext(request))
 
-def uid_detail(request,u_id):
+def user_book(request, username):
     try:
-        #book_id=Book.objects.get(owner=u_id
-        pass
+        user = User.objects.get(username__exact=username)
+        books = Book.objects.filter(owner=user)
     except:
-        pass
-    #return render_to_response('books/uid_detail.html',
-    #                           {'u_id':u_id},
-    #                           context_instance=RequestContext(request))
-    return 'aa'
+        raise Http404
+    return render_to_response('books/user_book.html',
+                              {'books': books, "user": user},
+                              context_instance=RequestContext(request))

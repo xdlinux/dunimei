@@ -1,0 +1,18 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load ifsetting_tag %}
+
+{% block head_title %} {% endblock %}
+
+{% block body %}
+<h1> {{ user.username }} </h1>
+<div>
+    {% for book in books %}
+    <ul>
+    <li> {{ book.bid.title }} </li>
+    <li> {{ book.bid.isbn }} </li>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %}

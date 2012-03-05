@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 
 urlpatterns = patterns("books.views",
+    url(r'^u/(?P<username>\w+)/$','user_book',name='user_book'),
     url(r'^(?P<id>\d+)/$', 'bid_detail', name='bid_detail'),
-    url(r'^u/(?P<u_id>\d+)/$','uid_detail',name='uid_detail'),
 )

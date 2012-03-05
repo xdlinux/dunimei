@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import permalink
 
+
 class Place(models.Model):
     """
     the infomation about a place(example: xidian, tsinghua)
