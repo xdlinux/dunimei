@@ -10,7 +10,7 @@ def bid_detail(request, id):
     except:
         raise Http404
     return render_to_response('books/bid_detail.html',
-                                {'bid': bid },
+                              {'bid': bid ,},
                                 context_instance=RequestContext(request))
 
 def user_book(request, username):
@@ -21,4 +21,16 @@ def user_book(request, username):
         raise Http404
     return render_to_response('books/user_book.html',
                               {'books': books, "user": user},
+                              context_instance=RequestContext(request))
+
+def borrow_book(request,id):
+    try:
+        bid = Bid.objects.get(douban_id=id)
+        books = Book.objects.filter(bid=bid)
+    except:
+        raise Http404
+    for book in books:
+        if book.current_record
+    return render_to_response('books/borrow_book.html',
+                              {'books': books, },
                               context_instance=RequestContext(request))

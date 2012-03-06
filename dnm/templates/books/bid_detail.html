@@ -13,6 +13,7 @@
     </ul>
     <img src="{{ bid.img }}" />
     <p> {{ bid.description }}</p>
-    <p>共用 {{ bid.num }}<p>
-        
+    <p>共有 {{ bid.num }}</p>
+    <a href="{% url borrow_book bid.douban_id %}">借阅</a>
+
 {% endblock %}

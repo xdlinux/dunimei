@@ -18,6 +18,9 @@
     </ul>
     
     <h2>Books</h2>
+    {% for book in books %}
+    <li><a href="{% url bid_detail book.bid.douban_id %}">{{ book.bid.title }}</a></li>
+    {% endfor %}
     <ul>
         
     </ul>

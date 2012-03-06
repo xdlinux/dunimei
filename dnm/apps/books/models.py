@@ -32,6 +32,7 @@ class Book(models.Model):
     """"""
     bid = models.ForeignKey(Bid)
     owner = models.ForeignKey(User)
+    #state = models.Bool
     current_record = models.ForeignKey('Record',
                                     related_name="current_record",
                                     null=True,
@@ -44,7 +45,7 @@ class Book(models.Model):
 class Record(models.Model):
     """the record model"""
     book = models.ForeignKey(Book)
-    owner = models.ForeignKey(User, related_name="owner_of")
+    owner = models.ForeignKey(User, related_name="owner_of")#who owns the book now
     lendto = models.ForeignKey(User, related_name="lender_of")
     lenddate = models.DateField()
     deadline = models.DateField()

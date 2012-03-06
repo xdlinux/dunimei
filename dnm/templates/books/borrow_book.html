@@ -1,0 +1,14 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load ifsetting_tag %}
+
+{% block head_title %} {{ bid.title }}{% endblock %}
+
+{% block body %}
+    <ul>
+    {% for book in books %}
+    <li>主人: {{ book.owner.username }} <a href="">借阅</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
