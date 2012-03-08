@@ -3,12 +3,12 @@
 {% load i18n %}
 {% load bootstrap_tags %}
 
-{% block head_title %}{% trans "Language" %}{% endblock %}
+{% block head_title %}{% trans "语言" %}{% endblock %}
 
 {% block body %}
-    <h2>{% trans "Language" %}</h2>
+    <h2>{% trans "语言" %}</h2>
     
-    <p>{% trans "This site can be used in your preferred language." %}</p>
+    <p>{% trans "这个站点可以使用您喜爱的语言显示。" %}</p>
     
     <form method="POST" action="">
         {% csrf_token %}
@@ -16,7 +16,7 @@
             {{ form|as_bootstrap }}
         </fieldset>
         <div class="actions">
-            <button type="submit" class="btn primary">{% trans "Change my language" %}</button>
+            <button type="submit" class="btn primary">{% trans "修改语言" %}</button>
         </div>
     </form>
 {% endblock %}

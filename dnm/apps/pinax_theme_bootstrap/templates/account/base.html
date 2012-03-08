@@ -7,26 +7,26 @@
     <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/account.css" />
 {% endblock %}
 
-{% block body_class %}account{% endblock %}
+{% block body_class %}账户管理{% endblock %}
 
 {% block subnav %}
-    <h1>{% trans "Account" %}</h1>
+    <h1>{% trans "账户管理" %}</h1>
     <ul>
-        <li><a href="{% url acct_email %}">{% trans "Email Addresses" %}</a></li>
+        <li><a href="{% url acct_email %}">{% trans "邮箱地址管理" %}</a></li>
         {% ifsetting ACCOUNT_USE_OPENID %}
             <li><a href="/openid/associations/">{% trans "OpenID Associations" %}</a></li>
         {% endifsetting %}
         {% if user.password %}
-        <li><a href="{% url acct_passwd %}">{% trans "Change Password" %}</a></li>
+        <li><a href="{% url acct_passwd %}">{% trans "修改密码" %}</a></li>
         {% else %}
-        <li><a href="{% url acct_passwd_set %}">{% trans "Set Password" %}</a></li>
+        <li><a href="{% url acct_passwd_set %}">{% trans "重置密码" %}</a></li>
         {% endif %}
         {% if user.password and request.openids %}
-        <li><a href="{% url acct_passwd_delete %}">{% trans "Delete Password" %}</a></li>
+        <li><a href="{% url acct_passwd_delete %}">{% trans "删除密码" %}</a></li>
         {% endif %}
         {% ifsetting USE_I18N %}
-            <li><a href="{% url acct_language_change %}">{% trans "Language" %}</a></li>
+            <li><a href="{% url acct_language_change %}">{% trans "语言" %}</a></li>
         {% endifsetting %}
-        <li><a href="{% url acct_timezone_change %}">{% trans "Timezone" %}</a></li>
+        <li><a href="{% url acct_timezone_change %}">{% trans "时区" %}</a></li>
     </ul>
 {% endblock %}

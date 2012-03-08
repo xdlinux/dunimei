@@ -5,22 +5,22 @@
 {% load ifsetting_tag %}
 {% load account_tags %}
 
-{% block head_title %}{% trans "Login" %}{% endblock %}
+{% block head_title %}{% trans "登陆" %}{% endblock %}
 
 {% block body %}
     
-    <h1>{% trans "Log In" %}</h1>
+    <h1>登陆</h1>
     
     {% if user.is_authenticated %}
         {% user_display user as user_display %}
-        <p><span class="warning">{% trans "Note" %}</span>: {% blocktrans %}you are already logged in as {{ user_display }}.{% endblocktrans %}</p>
+        <p><span class="warning">{% trans "Note" %}</span>: {% blocktrans %}你已经登陆了 {{ user_display }}.{% endblocktrans %}</p>
     {% else %}
         {% ifsetting ACCOUNT_OPEN_SIGNUP %}
         {% url acct_signup as signup_url %}
-        <p>{% blocktrans %}Don't have an account? <a href="{{ signup_url }}">Sign up</a>!{% endblocktrans %}</p>
+        <p>{% blocktrans %}如果你还没注册？ <a href="{{ signup_url }}">注册</a>！ {% endblocktrans %}</p>
         {% endifsetting %}
         <p>
-            <a href="{% url acct_passwd_reset %}">{% trans "Forgot password?" %}</a>
+            <a href="{% url acct_passwd_reset %}">{% trans "忘了密码？" %}</a>
         </p>
     {% endif %}
     
@@ -33,7 +33,7 @@
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
         <div class="actions">
-            <button type="submit" class="btn primary">{% trans "Log in" %}</button>
+            <button type="submit" class="btn primary">{% trans "登陆" %}</button>
         </div>
     </form>
     
@@ -65,10 +65,10 @@
     {% endifsetting %}
     
     {% if request.user.is_authenticated %}
-        <div><a href="{% url acct_logout %}?next={{ request.path }}">logout</a></div>
+        <div><a href="{% url acct_logout %}?next={{ request.path }}">滚粗</a></div>
     {% endif %}
     
-    <p>{% blocktrans %}If you have any trouble logging in to your account, contact us at <a href="mailto:{{ CONTACT_EMAIL }}">{{ CONTACT_EMAIL }}</a>.{% endblocktrans %}</p>
+    <p>{% blocktrans %}如果你对于登陆你的账户有任何疑问，请联系<a href="mailto:{{ CONTACT_EMAIL }}">{{ CONTACT_EMAIL }}</a>.{% endblocktrans %}</p>
 {% endblock %}
 
 {% block extra_body %}

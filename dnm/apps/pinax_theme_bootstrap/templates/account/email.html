@@ -3,19 +3,19 @@
 {% load i18n %}
 {% load bootstrap_tags %}
 
-{% block head_title %}{% trans "Account" %}{% endblock %}
+{% block head_title %}{% trans "邮箱管理" %}{% endblock %}
 
 {% block body %}
-    <h2>{% trans "Email Addresses" %}</h2>
+    <h2>{% trans "邮箱地址管理" %}</h2>
     
     {% if user.emailaddress_set.all %}
         <table class="zebra-striped">
             {% for emailaddress in user.emailaddress_set.all %}
                 <tr>
                     <td>{% if emailaddress.primary %}<b>{{ emailaddress.email }}</b>{% else %}{{ emailaddress.email }}{% endif %}</td>
-                    {% if emailaddress.verified %}
+                    {% if emailaddress.verified %} 
                         <td>
-                            <span class="verified">{% trans "verified" %}</span>
+                            <span class="verified">{% trans "验证的" %}</span>
                             {% if emailaddress.primary %}
                                 - <span class="primary">{% trans "primary" %}</span>
                             {% else %}
@@ -27,19 +27,19 @@
                                 -
                                 <a href="#" onclick="$('#primary_{{ forloop.counter }}').submit();">{% trans "make primary" %}</a>
                             {% endif %}
-                        </td>
-                    {% else %}
+                        </td>!
+                   {% else %}
                         <td>
-                            <span class="unverified">{% trans "unverified" %}</span>
+                            <span class="unverified">{% trans "未验证的" %}</span>
                             <form style="display: none;" id="send_{{ forloop.counter }}" method="post" action="">
                                 {% csrf_token %}
                                 <input type="hidden" name="email" value="{{ emailaddress.email }}"/>
                                 <input type="hidden" name="action" value="send"/>
                             </form>
                             -
-                            <a href="#" onclick="$('#send_{{ forloop.counter }}').submit();">{% trans "re-send verification email" %}</a>
+                            <a href="#" onclick="$('#send_{{ forloop.counter }}').submit();">{% trans "重新发送验证邮件" %}</a>
                         </td>
-                    {% endif %}
+                    {% endif %} 
                     <td>
                         {% if emailaddress.primary %}
                         {% else %}
@@ -48,7 +48,7 @@
                                 <input type="hidden" name="email" value="{{ emailaddress.email }}"/>
                                 <input type="hidden" name="action" value="remove"/>
                             </form>
-                            <a class="remove" href="#" onclick="$('#remove_{{ forloop.counter }}').submit()">{% trans "remove" %}</a>
+                            <a class="remove" href="#" onclick="$('#remove_{{ forloop.counter }}').submit()">{% trans "删除" %}</a>
                         {% endif %}
                     </td>
                 </tr>
@@ -56,11 +56,11 @@
         </table>
     {% else %} {# no user.emailaddress_set.all #}
         <div class="alert-message warning">
-            <p>{% trans "You should really add an email address so you can receive notifications, reset your password if you forget it, etc." %}</p>
+            <p>{% trans "您应该确认一个有效的邮箱以保证您能够及时的受到信息，重置您的密码等等。" %}</p>
         </div>
     {% endif %}
     
-    <h3>{% trans "Add Email Address" %}</h3>
+    <h3>{% trans "添加邮箱地址" %}</h3>
     
     <form method="post" action="" autocapitalize="off">
         {% csrf_token %}
@@ -69,7 +69,7 @@
         </fieldset>
         <input type="hidden" name="action" value="add"/>
          <div class="actions">
-             <button type="submit" class="btn primary">{% trans "add" %}</button>
+             <button type="submit" class="btn primary">{% trans "添加" %}</button>
         </div>
     </form>
     

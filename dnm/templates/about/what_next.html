@@ -3,20 +3,20 @@
 {% load i18n %}
 {% load ifsetting_tag %}
 
-{% block head_title %}{% trans "What Next?" %}{% endblock %}
+{% block head_title %}{% trans "开始第一步" %}{% endblock %}
 
 {% block body %}
-    <h1>{% trans "What Next?" %}</h1>
+    <h1>{% trans "开始阅读之路的第一步" %}</h1>
     
     {% if user.is_authenticated %}
-        <p>Here are some things to do to get started with this site:</p>
+        <p>先完成这些事情吧，完成了你就迈出了第一步了</p>
         
         <dl class="what_next">
-            <dt><a href="{% url acct_email %}">verify an email address</a></dt>
-            <dd>so you can receive notifications, reset your password and so people can find you more easily.</dd>
+            <dt><a href="{% url acct_email %}">验证邮箱</a></dt>
+            <dd>这样你就可以收到来自网站的通知，重置您的密码。</dd>
             
-            <dt><a href="{% url profile_detail user.username %}">fill out your profile</a></dt>
-            <dd>to tell the world a little about yourself.</dd>
+            <dt><a href="{% url profile_detail user.username %}">增加个人信息</a></dt>
+            <dd>让这个世界更多的认识你，让你的朋友更容易的找到你。</dd>
             
             {% ifsetting ACCOUNT_OPEN_SIGNUP %}
             {% else %}
